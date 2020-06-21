@@ -69,14 +69,26 @@ public class Polynomial {
 
     // TODO: add the terms of the given polynomial to the callee polynomial; hint: traverse the given polynomial and call addTerm to add each of its terms to the callee polynomial
     void add(final Polynomial other) {
-
+        Term current = other.firstTerm;
+        while (current != null) {
+            addTerm(current);
+            current = current.getNext();
+        }
     }
 
     // TODO: traverse the callee polynomial and call toString from each of its terms to generate a string representation of the polynomial; use the following examples to figure it out the format to use:
     //  8x^3 -2x^2 + 7x + 3.2
     @Override
     public String toString() {
-        return ""; // placeholder so the code compiles
+        String out = "";
+        Term current = firstTerm;
+        while (current != null) {
+            if (current.getCoefficient() >= 0)
+                out += " + ";
+            out += current.toString();
+            current = current.getNext();
+        }
+        return out;
     }
 
     // TODOd: return the term with the given exponent; null if the term does not exist
