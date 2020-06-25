@@ -22,11 +22,16 @@ public class QueueDriver {
         String data = queue.pop();
         System.out.println(data + " was popped out from the queue!");
         System.out.println(queue);
-        data = queue.pop();
-        System.out.println(data + " was popped out from the queue!");
-        System.out.println(queue);
-        data = queue.pop();
-        System.out.println(data + " was popped out from the queue!");
+//        data = queue.pop();
+//        System.out.println(data + " was popped out from the queue!");
+//        System.out.println(queue);
+//        data = queue.pop();
+//        System.out.println(data + " was popped out from the queue!");
+//        System.out.println(queue);
+
+        for (int i = 0; i < 100; i++)
+            queue.push("" + i);
+
         System.out.println(queue);
     }
 }

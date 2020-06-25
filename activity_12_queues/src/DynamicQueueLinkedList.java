@@ -15,21 +15,37 @@ public class DynamicQueueLinkedList<T> extends Queue<T> {
         front = rear = null;
     }
 
-    // TODO: implement the method
+    // TODOd: implement the method
     @Override
     public void push(T data) {
-
+        Node<T> newNode = new Node<>(data);
+        if (isEmpty())
+            front = rear = newNode;
+        else {
+            rear.setNext(newNode);
+            rear = newNode;
+        }
     }
 
-    // TODO: implement the method
+    // TODOd: implement the method
     @Override
     public T pop() throws NoSuchElementException {
-        return null; // placeholder
+        if (isEmpty())
+            throw new NoSuchElementException();
+        T data = front.getData();
+        Node<T> temp = front;
+        front = front.getNext();
+        if (front == null)
+            rear = null;
+        temp.setNext(null);
+        return data;
     }
 
     @Override
     public T peek() throws NoSuchElementException {
-        return null; // placeholder
+        if (isEmpty())
+            throw new NoSuchElementException();
+        return front.getData();
     }
 
     @Override

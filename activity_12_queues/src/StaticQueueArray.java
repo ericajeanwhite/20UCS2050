@@ -5,6 +5,7 @@
  * Description: Activity 12 - StaticQueueArray Class
  */
 
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class StaticQueueArray<T> extends Queue<T> {
@@ -20,28 +21,43 @@ public class StaticQueueArray<T> extends Queue<T> {
         else
             data = new Object[capacity];
         size = 0;
+        front = 0;
     }
 
     public StaticQueueArray() {
         this(MIN_CAPACITY);
     }
 
-    // TODO: implement the method
+    // TODOd: implement the method
     @Override
     public void push(final T data) throws QueueOverflowError {
-
+        if (size < this.data.length) {
+            int rear = (front + size) % this.data.length;
+            this.data[rear] = data;
+            size++;
+        }
+        else
+            throw new QueueOverflowError();
     }
 
-    // TODO: implement the method
+    // TODOd: implement the method
     @Override
     public T pop() throws NoSuchElementException {
-        return null; // placeholder
+        if (size > 0) {
+            T data = (T) this.data[front];
+            front = (front + 1) % this.data.length;
+            size--;
+            return data;
+        }
+        throw new NoSuchElementException();
     }
 
-    // TODO: implement the method
+    // TODOd: implement the method
     @Override
     public T peek() throws NoSuchElementException {
-        return null; // placeholder
+        if (size > 0)
+            return (T) this.data[front];
+        throw new NoSuchElementException();
     }
 
     @Override
@@ -66,7 +82,7 @@ public class StaticQueueArray<T> extends Queue<T> {
             out += " " + data[current];
             current = (current + 1) % this.data.length;
         }
-        out += " (hear)";
+        out += " (rear)";
         return out;
     }
 }

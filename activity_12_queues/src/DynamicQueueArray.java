@@ -17,10 +17,20 @@ public class DynamicQueueArray<T> extends StaticQueueArray<T> {
         super(capacity);
     }
 
-    // TODO: implement the method
+    // TODOd: implement the method
     @Override
     public void push(T data) {
-
+        if (size == this.data.length) {
+            Object newData[] = new Object[this.data.length + CAPACITY_INCREMENT];
+            // CORRECTION: this is the right way to copy the arrays
+            for (int i = 0, j = front, k = 0; i < this.data.length; i++, k++) {
+                newData[k] = this.data[j];
+                j = (j + 1) % this.data.length;
+            }
+            this.front = 0; // CORRECTION: don't forget to update front on the new array
+            this.data = newData;
+        }
+        super.push(data);
     }
 
     @Override
