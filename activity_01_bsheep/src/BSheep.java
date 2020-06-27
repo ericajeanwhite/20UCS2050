@@ -12,6 +12,6 @@ public class BSheep {
 
     public static void main(String[] args) {
 
-        
+	System.out.println("Bee");        
     }
 } // end of class definition
