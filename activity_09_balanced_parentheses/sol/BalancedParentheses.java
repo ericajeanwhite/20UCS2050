@@ -4,24 +4,29 @@
  * Description: Activity 09 - BalancedParentheses
  */
 
+import java.util.Arrays;
+import java.util.EmptyStackException;
 import java.util.Scanner;
 
 public class BalancedParentheses {
 
-    // TODO: implement isBalanced using a stack
+    // TODOd: implement isBalanced using a stack
     public static boolean isBalanced(String exp) {
-        DynamicStackLinkedList stack = new DynamicStackLinkedList();
-        for (int i = 0; i < exp.length(); i++) {
-            char c = exp.charAt(i);
-            if (c == '(')
-                stack.push(c);
-            else if (c == ')') {
-                char top = stack.pop();
-                if (top != '(')
-                    return false;
-            }
-        }
-        return true;
+       Stack<String> stack = new DynamicStackLinkedList<>();
+       String el[] = exp.split(" ");
+       for (String e : el) {
+           if (e.equals("("))
+               stack.push(e);
+           else if (e.equals(")")) {
+               try {
+                   stack.pop();
+               }
+               catch (EmptyStackException ex) {
+                   return false;
+               }
+           }
+       }
+       return stack.isEmpty();
     }
 
     public static void main(String[] args) {
