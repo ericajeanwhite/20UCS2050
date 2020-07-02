@@ -1,7 +1,7 @@
 /*
  * CS2050 - Computer Science II - Summer 2020
  * Instructor: Thyago Mota
- * Student Names:
+ * Student Names: Erica White && McKinnly Ingleby
  * Description: Prg01 - Node Class
  */
 

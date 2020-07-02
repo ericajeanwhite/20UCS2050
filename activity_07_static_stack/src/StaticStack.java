@@ -28,19 +28,29 @@ public class StaticStack {
 
     // TODO: push data onto the stack (if no space is available, do nothing or throw an exception)
     public void push(int data) {
-
+        if( size < capacity){
+            this.data[size] = data;
+            size++;
+        }
     }
 
     // TODO: peek just returns the element on top of the stack but does not remove it;
     // if the stack is empty, return 0 or throw an exception
     public int peek() {
-        return 0; // placeholder
+        return 0;
+
+
     }
 
     // TODO: pop returns the element on top of the stack, also removing it
     // if the stack is empty, return 0 or throw an exception
     public int pop() {
-        return 0; // placeholder
+        if( size > 0 ){
+            int data = this.data[size - 1];
+            size--;
+            return data;
+        }
+        return 0;
     }
 
     public int size() {
@@ -53,7 +63,8 @@ public class StaticStack {
 
     // TODO: implement isEmpty
     public boolean isEmpty() {
-        return false; // placeholder
+
+        return size ==0;
     }
 
     public boolean isFull() { return size == capacity; }

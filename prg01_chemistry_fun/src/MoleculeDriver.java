@@ -1,7 +1,7 @@
 /*
  * CS2050 - Computer Science II - Summer 2020
  * Instructor: Thyago Mota
- * Student Names:
+ * Student Names: Erica White && McKinnly Ingleby
  * Description: Prg01 - MoleculeDriver Class
  */
 
@@ -28,6 +28,13 @@ public class MoleculeDriver {
         System.out.println(caffeine);
 
         // TODO: create your favorite molecule
+        // and elements
+        //Glucose C6H12O6
+        Molecule glucose = new Molecule("Glucose");
+        glucose.add(C, 6);
+        glucose.add(H, 12);
+        glucose.add(O, 6);
+        System.out.println(glucose);
 
     }
 

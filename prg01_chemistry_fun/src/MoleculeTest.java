@@ -1,10 +1,11 @@
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class MoleculeTest {
 
-    @Test
+   @Test
     public void testSimpleMolecules() {
         // simple carbon
         Molecule m1 = new Molecule("");
@@ -92,7 +93,10 @@ class MoleculeTest {
         Element H = new Element("H", "hydrogen");
         // test 1: C_8H_10N_4O_2
         Molecule m1 = new Molecule("");
-        m1.add(C); m1.add(H); m1.add(N); m1.add(O);
+        m1.add(C);
+        m1.add(H);
+        m1.add(N);
+        m1.add(O);
         assertEquals(4, m1.size());
         assertEquals(C, m1.get(0));
         assertEquals(H, m1.get(1));

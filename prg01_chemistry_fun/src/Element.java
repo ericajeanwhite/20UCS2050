@@ -1,7 +1,7 @@
 /*
  * CS2050 - Computer Science II - Summer 2020
  * Instructor: Thyago Mota
- * Student Names:
+ * Student Names: Erica White && McKinnly Ingleby
  * Description: Prg01 - Element Class
  */
 
@@ -33,7 +33,12 @@ public class Element {
     // TODO: two elements are considered to be equal if they have the same atom letter.
     @Override
     public boolean equals(final Object obj) {
-        return false; // placeholder so the code compliles
+        Element temp = (Element) obj;
+        if (this.atomLetter.equals(temp.atomLetter)){
+            return true;
+        }
+        return false;
+
     }
 
     @Override
